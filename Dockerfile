@@ -81,7 +81,6 @@ RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data
 # Adds necessary files in order to run
 #
 
-ADD client.jks /home/iobio/iobio/tools/icgc-storage-client/conf/
 ADD app.conf /etc/supervisor.d/
 ADD bamReadDeptherHelper.sh /home/iobio/iobio/bin/
 
