@@ -72,10 +72,12 @@ RUN mkdir -p /home/iobio/iobio/tools/icgc-storage-client && \
 RUN cp -r /home/iobio/iobio/tools/icgc-storage-client/*/* /home/iobio/iobio/tools/icgc-storage-client/
 
 #
-# Makes a directory for icgc-storage-client to mount
+# Makes a directory for icgc-storage-client collab and aws to mount
 #
 
 RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data
+RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/aws
+RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/collab
 
 #
 # Adds necessary files in order to run
