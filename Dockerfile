@@ -91,8 +91,10 @@ ADD bin/bamReadDeptherHelper.sh /home/iobio/iobio/bin/
 #
 ADD bin/headerHelper.sh /home/iobio/iobio/bin/samHeaderHelper.sh
 ADD bin/bamstatsAliveWrapper.sh /home/iobio/iobio/bin/bamstatsAliveWrapper.sh
+ADD bin/statsWrapper.py /home/iobio/iobio/bin/statsWrapper.py
 RUN chmod +x /home/iobio/iobio/bin/samHeaderHelper.sh
 RUN chmod +x /home/iobio/iobio/bin/bamstatsAliveWrapper.sh
+RUN chmod +x /home/iobio/iobio/bin/statsWrapper.py
 
 ADD services/bamstatsalive.js /home/iobio/iobio/services/bamstatsalive.js
 
