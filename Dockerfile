@@ -84,7 +84,17 @@ RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/collab
 #
 
 ADD app.conf /etc/supervisor.d/
-ADD bamReadDeptherHelper.sh /home/iobio/iobio/bin/
+ADD bin/bamReadDeptherHelper.sh /home/iobio/iobio/bin/
+
+#
+# Use our wrappers
+#
+ADD bin/headerHelper.sh /home/iobio/iobio/bin/samHeaderHelper.sh
+ADD bin/bamstatsAliveWrapper.sh /home/iobio/iobio/bin/bamstatsAliveWrapper.sh
+RUN chmod +x /home/iobio/iobio/bin/samHeaderHelper.sh
+RUN chmod +x /home/iobio/iobio/bin/bamstatsAliveWrapper.sh
+
+ADD services/bamstatsalive.js /home/iobio/iobio/services/bamstatsalive.js
 
 #
 # Use the bam.iobio entrypoint
