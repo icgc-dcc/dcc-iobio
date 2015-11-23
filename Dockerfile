@@ -84,11 +84,11 @@ RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/collab
 #
 
 ADD app.conf /etc/supervisor.d/
-ADD bin/bamReadDeptherHelper.sh /home/iobio/iobio/bin/
 
 #
 # Use our wrappers
 #
+ADD bin/bamReadDeptherHelper.sh /home/iobio/iobio/bin/
 ADD bin/headerHelper.sh /home/iobio/iobio/bin/samHeaderHelper.sh
 ADD bin/bamstatsAliveWrapper.sh /home/iobio/iobio/bin/bamstatsAliveWrapper.sh
 ADD bin/statsWrapper.py /home/iobio/iobio/bin/statsWrapper.py

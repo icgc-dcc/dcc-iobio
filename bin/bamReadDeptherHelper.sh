@@ -1,38 +1,9 @@
 #!/bin/bash
+input=$1
+PATH="/home/iobio/iobio/tools/icgc-storage-client/data/aws/"
 
-input=stdin
-args=""
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+FULL_NAME=$PATH$input
 
-while getopts i:b: flag; do
-  case $flag in
-    i)
-      input=$OPTARG
-      ;;
-    b)
-      args="$args -b $OPTARG"
-      ;;
-    ?)
-      exit;
-      ;;
-  esac
-done
-
-if [ $input == stdin ]
-then
-  $DIR/../bin./baiReadDepthCoverager $args
-elif [[ $input == /* ]]
-then
-  dd if="$input" bs=1048576 > /dev/null
-  cmd="cat \"$input\" | $DIR/../bin/bamReadDepther $args"
-  eval $cmd
-else
-  cmd="curl -s \"$input\" | $DIR/../bin/bamReadDepther $args"
-  eval $cmd   
-fi
-
-
-# while read line
-# do
-#    echo $line
-# done
+/bin/dd if=$FULL_NAME bs=1048576 > /dev/null
+cmd="/bin/cat \"$FULL_NAME\" | /home/iobio/iobio/bin/bamReadDepther"
+eval $cmd
