@@ -83,6 +83,7 @@ RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/collab
 # Adds necessary files in order to run
 #
 
+ADD conf/nginx.conf /etc/nginx/nginx.conf
 ADD app.conf /etc/supervisor.d/
 
 #
