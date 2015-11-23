@@ -83,6 +83,7 @@ RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/collab
 # Adds necessary files in order to run
 #
 
+ADD conf/nginx.conf /etc/nginx/nginx.conf
 ADD app.conf /etc/supervisor.d/
 
 #
@@ -97,6 +98,12 @@ RUN chmod +x /home/iobio/iobio/bin/bamstatsAliveWrapper.sh
 RUN chmod +x /home/iobio/iobio/bin/statsWrapper.py
 
 ADD services/bamstatsalive.js /home/iobio/iobio/services/bamstatsalive.js
+
+#
+# Add landing page for the server
+#
+ADD www/index.html /var/www/html/index.html
+ADD www/favicon.ico /var/www/html/favicon.ico
 
 #
 # Use the bam.iobio entrypoint
