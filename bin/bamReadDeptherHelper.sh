@@ -1,6 +1,11 @@
 #!/bin/bash
 input=$1
-PATH="/home/iobio/iobio/tools/icgc-storage-client/data/aws/"
+if [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$input ];
+then
+    PATH='/home/iobio/iobio/tools/icgc-storage-client/data/collab/'
+else
+    PATH='/home/iobio/iobio/tools/icgc-storage-client/data/aws/'
+fi
 
 FULL_NAME=$PATH$input
 
