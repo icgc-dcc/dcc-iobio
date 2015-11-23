@@ -103,6 +103,7 @@ ADD services/bamstatsalive.js /home/iobio/iobio/services/bamstatsalive.js
 # Add landing page for the server
 #
 ADD www/index.html /var/www/html/index.html
+ADD www/favicon.ico /var/www/html/favicon.ico
 
 #
 # Use the bam.iobio entrypoint
