@@ -1,2 +1,2 @@
 #!/bin/sh
-/home/iobio/iobio/bin/bamstatsAlive -u 500 -k 1 -r $1
+/home/iobio/iobio/bin/statsWrapper.py $1 $2
