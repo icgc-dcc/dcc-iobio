@@ -12,7 +12,7 @@ for region in input_json:
     new_arg = ' ' + str(region['chr']) + ':' + str(region['start']) + '-' + str(region['end'])
     sam_regions.append(new_arg)
 
-bsa_cmd = ["/home/iobio/iobio/bin/bamstatsAlive", "-", "-u", "500", "-k", "1", "-r", sys.argv[1]]
+bsa_cmd = ["/home/iobio/iobio/bin/bamstatsAlive", "-u", "500", "-k", "1", "-r", sys.argv[1]]
 st_cmd = ["/home/iobio/iobio/bin/samtools", "view", "-b", "/home/iobio/iobio/tools/icgc-storage-client/data/aws/"+arg2]
 st_cmd.extend(sam_regions)
 
