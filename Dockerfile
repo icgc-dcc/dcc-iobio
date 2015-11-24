@@ -100,6 +100,12 @@ RUN chmod +x /home/iobio/iobio/bin/statsWrapper.py
 ADD services/bamstatsalive.js /home/iobio/iobio/services/bamstatsalive.js
 
 #
+# Modify their backend code
+#
+
+ADD lib/cmd.js /home/iobio/iobio/lib/cmd.js
+
+#
 # Add landing page for the server
 #
 ADD www/index.html /var/www/html/index.html
