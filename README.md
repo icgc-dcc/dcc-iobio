@@ -3,6 +3,21 @@ ICGC DCC - bam.iobio
 
 A means to sample and view very large BAM files in less than 15 seconds.
 
+Introduction
+---
+[iobio](http://iobio.io/) is a team of developers situated in the Marth lab at the Center for Genetic Discovery at the University of Utah. iobio's goal is to make understanding complex genomic datasets more intuitive, and the analysis more interactive, by streaming and displaying visual feedback. [Bam.iobio](http://bam.iobio.io/) uses front-end code that can be found [here](https://github.com/chmille4/bam.iobio.io), that interacts with a [docker image](https://hub.docker.com/r/qiaoy/iobio-bundle.bam-iobio/) which reads and processes data, and streams back the generated metrics through websockets. Bam.iobio was originally designed to handle open-source data, however this use-case required us to implement security changes, since we are working with sensitive data. These requirements required us to implement our own docker image, extending from their existing one.
+
+Security Changes
+---
+ 1. Pushed samtools into the container; now the front end has no access to samtools directly.
+ 2. Wrapped all services with a wrapper; the front end no longer builds the shell command string. The front end sends the necessary fields to the wrapper in the container, and the wrapper creates the bash command.
+ 3. Removed unused websocket connections
+ 4. Removed unused nginx and supervisor configurations 
+
+ICGC-storage-client
+---
+[ICGC-storage-client](https://hub.docker.com/r/icgc/icgc-storage-client/) was implemented in our extended docker container because we required a way to access sensitive data from protected repositories. Using a combination of FUSE and ICGC-storage-client, we mounted the sensitive data onto a folder within the docker container, simulating a local folder containing the sensitive data.
+
 Run
 ---
 To run, you must have a valid authentication token. If you have DACO access, this can be retrieved from the portal.
