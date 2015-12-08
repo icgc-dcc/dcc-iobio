@@ -117,6 +117,7 @@ ADD www/favicon.ico /var/www/html/favicon.ico
 # Add cleanup script
 #
 ADD bin/cleaner.sh /home/iobio/iobio/bin/cleaner.sh
+RUN chmod +x /home/iobio/iobio/bin/cleaner.sh
 
 #
 # Use the bam.iobio entrypoint
