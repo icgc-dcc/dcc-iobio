@@ -83,6 +83,7 @@ RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/collab
 # Adds necessary files in order to run
 #
 
+RUN npm install --prefix /home/iobio/iobio ps-tree
 ADD conf/nginx.conf /etc/nginx/nginx.conf
 ADD app.conf /etc/supervisor.d/
 
@@ -104,12 +105,19 @@ ADD services/bamstatsalive.js /home/iobio/iobio/services/bamstatsalive.js
 #
 
 ADD lib/cmd.js /home/iobio/iobio/lib/cmd.js
+ADD lib/server.js /home/iobio/iobio/lib/server.js
 
 #
 # Add landing page for the server
 #
 ADD www/index.html /var/www/html/index.html
 ADD www/favicon.ico /var/www/html/favicon.ico
+
+#
+# Add cleanup script
+#
+ADD bin/cleaner.sh /home/iobio/iobio/bin/cleaner.sh
+RUN chmod +x /home/iobio/iobio/bin/cleaner.sh
 
 #
 # Use the bam.iobio entrypoint
