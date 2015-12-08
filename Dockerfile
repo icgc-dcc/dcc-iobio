@@ -105,7 +105,7 @@ ADD services/bamstatsalive.js /home/iobio/iobio/services/bamstatsalive.js
 #
 
 ADD lib/cmd.js /home/iobio/iobio/lib/cmd.js
-ADD lib/server.js /home/iobnio/iobio/lib/server.js
+ADD lib/server.js /home/iobio/iobio/lib/server.js
 
 #
 # Add landing page for the server
