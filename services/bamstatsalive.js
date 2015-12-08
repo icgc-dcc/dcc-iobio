@@ -7,7 +7,7 @@ var port = 8002,
 var tool = {
    apiVersion : "0.1",
    name : 'bamstatsAlive',
-   path :  'bamstatsAliveWrapper.sh',
+   path :  'statsWrapper.py',
    inputOption: '-fake',
    description : 'utility for bam files',
    exampleUrl : "fill in"

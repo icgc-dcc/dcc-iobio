@@ -83,6 +83,7 @@ RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/collab
 # Adds necessary files in order to run
 #
 
+RUN npm install --prefix /home/iobio/iobio ps-tree
 ADD conf/nginx.conf /etc/nginx/nginx.conf
 ADD app.conf /etc/supervisor.d/
 
@@ -104,6 +105,7 @@ ADD services/bamstatsalive.js /home/iobio/iobio/services/bamstatsalive.js
 #
 
 ADD lib/cmd.js /home/iobio/iobio/lib/cmd.js
+ADD lib/server.js /home/iobnio/iobio/lib/server.js
 
 #
 # Add landing page for the server
