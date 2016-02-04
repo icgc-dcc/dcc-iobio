@@ -30,9 +30,12 @@ for region in input_json:
     new_arg = ' ' + str(region['chr']) + ':' + str(region['start']) + '-' + str(region['end'])
     sam_regions.append(new_arg)
 
-if (os.stat("/home/iobio/iobio/tools/icgc-storage-client/data/collab/" + arg2).st_size != 0):
-    path="/home/iobio/iobio/tools/icgc-storage-client/data/collab/" + arg2
-else:
+try:
+    if (os.stat("/home/iobio/iobio/tools/icgc-storage-client/data/collab/" + arg2).st_size != 0):
+        path="/home/iobio/iobio/tools/icgc-storage-client/data/collab/" + arg2
+    else:
+        path="/home/iobio/iobio/tools/icgc-storage-client/data/aws/" + arg2
+except:
     path="/home/iobio/iobio/tools/icgc-storage-client/data/aws/" + arg2
 
 bsa_cmd = ["/home/iobio/iobio/bin/bamstatsAlive", "-u", "500", "-k", "1", "-r", sys.argv[1]]
