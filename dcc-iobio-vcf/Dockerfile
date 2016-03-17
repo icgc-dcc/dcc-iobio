@@ -104,6 +104,25 @@ ADD conf/nginx.conf /etc/nginx/nginx.conf
 ADD app.conf /etc/supervisor.d/
 
 #
+# Use our wrappers
+#
+ADD bin/vcfReadDeptherHelper.sh /home/iobio/iobio/bin/vcfReadDeptherHelper.sh
+ADD bin/vcfstatsAliveWrapper.sh /home/iobio/iobio/bin/vcfstatsAliveWrapper.sh
+ADD bin/statsWrapper.py /home/iobio/iobio/bin/statsWrapper.py
+RUN chmod +x /home/iobio/iobio/bin/vcfReadDeptherHelper.sh
+RUN chmod +x /home/iobio/iobio/bin/vcfstatsAliveWrapper.sh
+RUN chmod +x /home/iobio/iobio/bin/statsWrapper.py
+
+ADD services/vcfstatsalive.js /home/iobio/iobio/services/vcfstatsalive.js
+
+#
+# Our version of the tabix binary to support idx files
+#
+RUN rm -rf /home/iobio/iobio/bin/tabix
+ADD bin/tabix /home/iobio/iobio/bin/tabix
+RUN chmod +x /home/iobio/iobio/bin/tabix
+
+#
 # Modify their backend code
 #
 
@@ -119,6 +138,12 @@ RUN rm -rf /home/iobio/iobio/bin/bamHelper.sh
 RUN rm -rf /home/iobio/iobio/services/bamstatsAliveServer.js
 RUN rm -rf /home/iobio/iobio/services/bamReadDepther.js
 RUN rm -rf /home/iobio/iobio/services/samtoolsServer.js
+RUN rm -rf /home/iobio/iobio/services/tabixServer.js
+RUN rm -rf /home/iobio/iobio/services/emailServer.js
+RUN rm -rf /home/iobio/iobio/services/bamBinnerServer.js
+RUN rm -rf /home/iobio/iobio/services/bamMergerServer.js
+RUN rm -rf /home/iobio/iobio/services/bamtoolsServer.js
+
 
 #
 # Add cleanup script
