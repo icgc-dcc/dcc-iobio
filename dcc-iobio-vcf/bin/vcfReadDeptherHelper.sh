@@ -22,25 +22,20 @@ idx=$1".idx"
 
 if [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$tbi ];
 then
-    VCF="/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$1
     FULL_NAME="/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$tbi
 elif [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$idx ];
 then 
-    VCF="/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$1
     FULL_NAME="/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$idx
 elif [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/aws/"$tbi ];
 then
-    VCF="/home/iobio/iobio/tools/icgc-storage-client/data/aws/"$1
     FULL_NAME="/home/iobio/iobio/tools/icgc-storage-client/data/aws/"$tbi
 else
-    VCF="/home/iobio/iobio/tools/icgc-storage-client/data/aws/"$1
     FULL_NAME="/home/iobio/iobio/tools/icgc-storage-client/data/aws/"$idx
 fi
 
 # We are applying dd to the bai file and redirecting it to /dev/null because we want to
 # cache it to the operating system, before applying cat to it. This is to avoid the many
 # connections that the storage client will have to make, since the buffer is small.
-/bin/dd if=$VCF bs=1048576 > /dev/null
 /bin/dd if=$FULL_NAME bs=1048576 > /dev/null
 cmd="/bin/cat \"$FULL_NAME\" | /home/iobio/iobio/bin/bgzip -d | /home/iobio/iobio/bin/vcfReadDepther"
 eval $cmd
