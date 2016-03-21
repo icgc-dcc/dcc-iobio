@@ -144,7 +144,6 @@ RUN rm -rf /home/iobio/iobio/services/bamBinnerServer.js
 RUN rm -rf /home/iobio/iobio/services/bamMergerServer.js
 RUN rm -rf /home/iobio/iobio/services/bamtoolsServer.js
 
-
 #
 # Add cleanup script
 #
