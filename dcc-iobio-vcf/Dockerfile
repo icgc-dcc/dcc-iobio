@@ -145,6 +145,12 @@ RUN rm -rf /home/iobio/iobio/services/bamMergerServer.js
 RUN rm -rf /home/iobio/iobio/services/bamtoolsServer.js
 
 #
+# Add landing page for the server
+#
+ADD www/index.html /var/www/html/index.html
+ADD www/favicon.ico /var/www/html/favicon.ico
+
+#
 # Add cleanup script
 #
 ADD bin/cleaner.sh /home/iobio/iobio/bin/cleaner.sh
