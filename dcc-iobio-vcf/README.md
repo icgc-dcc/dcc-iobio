@@ -9,7 +9,7 @@ Introduction
 
 Security Changes
 ---
- 1. Pushed samtools into the container; now the front end has no access to tabix directly.
+ 1. Pushed tabix service into the container; now the front end has no access to tabix directly.
  2. Wrapped all services with a wrapper; the front end no longer builds the shell command string. The front end sends the necessary fields to the wrapper in the container, and the wrapper creates the bash command.
  3. Removed unused websocket connections
  4. Removed unused nginx and supervisor configurations 
