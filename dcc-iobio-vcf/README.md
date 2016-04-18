@@ -13,6 +13,7 @@ Security Changes
  2. Wrapped all services with a wrapper; the front end no longer builds the shell command string. The front end sends the necessary fields to the wrapper in the container, and the wrapper creates the bash command.
  3. Removed unused websocket connections
  4. Removed unused nginx and supervisor configurations 
+ 5. Quantized selectable ranges for stats to 50,000 base intervals in order to limit the ability to precisely locate and identify single base changes on the donor's genome.   
 
 ICGC Storage Client
 ---
