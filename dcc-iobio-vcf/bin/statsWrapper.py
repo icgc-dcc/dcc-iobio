@@ -20,15 +20,29 @@ import sys
 import json
 import subprocess
 import os
+import math
 
 arg1 = sys.argv[1]
 arg2 = sys.argv[2]
 input_json = json.loads(arg1)
 
+precision = 50000
 sam_regions = []
+previous_region = ''
+
 for region in input_json:
-    new_arg = str(region['chr']) + ':' + str(region['start']) + '-' + str(region['end'])
-    sam_regions.append(new_arg)
+    start_rounded = int(math.floor(region['start']/precision) * precision)
+    end_rounded = int(math.ceil(region['end']/precision) * precision)
+    
+    if end_rounded == start_rounded:
+        end_rounded = start_rounded + precision
+    
+    new_arg = str(region['chr']) + ':' + str(start_rounded) + '-' + str(end_rounded)
+    
+    # Ensure we are not duplicating rounded regions
+    if new_arg != previous_region:
+        sam_regions.append(new_arg)
+        previous_region = new_arg
 
 if (os.stat("/home/iobio/iobio/tools/icgc-storage-client/data/collab/" + arg2).st_size != 0):
     path="/home/iobio/iobio/tools/icgc-storage-client/data/collab/" + arg2
