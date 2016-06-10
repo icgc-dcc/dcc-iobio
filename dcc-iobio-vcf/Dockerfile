@@ -77,7 +77,7 @@ RUN apk add fuse fuse-dev
 
 RUN mkdir -p /home/iobio/iobio/tools/icgc-storage-client && \
     cd /home/iobio/iobio/tools/icgc-storage-client && \
-    wget -qO- https://seqwaremaven.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/icgc-storage-client/[RELEASE]/icgc-storage-client-[RELEASE]-dist.tar.gz | \
+    wget -qO- https://artifacts.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/icgc-storage-client/[RELEASE]/icgc-storage-client-[RELEASE]-dist.tar.gz | \
     tar xvz
 
 #
