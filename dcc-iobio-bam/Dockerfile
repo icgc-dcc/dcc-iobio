@@ -36,7 +36,7 @@ FROM qiaoy/iobio-bundle.bam-iobio:secure
 #
 
 RUN apk add --update wget ca-certificates && \
-    export ALPINE_GLIBC_BASE_URL="https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64" && \
+    export ALPINE_GLIBC_BASE_URL="https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.21-r2/" && \
     export ALPINE_GLIBC_PACKAGE="glibc-2.21-r2.apk" && \
     export ALPINE_GLIBC_BIN_PACKAGE="glibc-bin-2.21-r2.apk" && \
     wget "$ALPINE_GLIBC_BASE_URL/$ALPINE_GLIBC_PACKAGE" "$ALPINE_GLIBC_BASE_URL/$ALPINE_GLIBC_BIN_PACKAGE" && \
