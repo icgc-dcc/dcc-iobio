@@ -47,8 +47,8 @@ RUN apk add --update wget ca-certificates && \
     rm "$ALPINE_GLIBC_PACKAGE" "$ALPINE_GLIBC_BIN_PACKAGE" /var/cache/apk/*
 
 ENV JAVA_VERSION=8 \
-    JAVA_UPDATE=66 \
-    JAVA_BUILD=17 \
+    JAVA_UPDATE=152 \
+    JAVA_BUILD=16 \
     JAVA_HOME=/usr/lib/jvm/default-jvm
 
 RUN apk add --update wget ca-certificates && \
