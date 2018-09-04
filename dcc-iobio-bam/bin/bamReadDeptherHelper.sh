@@ -17,11 +17,11 @@
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 input=$1
-if [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$input ];
+if [ -s "/home/iobio/iobio/tools/score-client/data/collab/"$input ];
 then
-    PATH='/home/iobio/iobio/tools/icgc-storage-client/data/collab/'
+    PATH='/home/iobio/iobio/tools/score-client/data/collab/'
 else
-    PATH='/home/iobio/iobio/tools/icgc-storage-client/data/aws/'
+    PATH='/home/iobio/iobio/tools/score-client/data/aws/'
 fi
 
 FULL_NAME=$PATH$input

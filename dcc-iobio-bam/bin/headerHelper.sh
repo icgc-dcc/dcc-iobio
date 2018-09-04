@@ -16,10 +16,10 @@
 # IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN                        
 # ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-if [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$1 ];
+if [ -s "/home/iobio/iobio/tools/score-client/data/collab/"$1 ];
 then
-    path='/home/iobio/iobio/tools/icgc-storage-client/data/collab/'
+    path='/home/iobio/iobio/tools/score-client/data/collab/'
 else
-    path='/home/iobio/iobio/tools/icgc-storage-client/data/aws/'
+    path='/home/iobio/iobio/tools/score-client/data/aws/'
 fi
 /home/iobio/iobio/tools/samtools view -H $path$1

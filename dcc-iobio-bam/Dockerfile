@@ -47,14 +47,14 @@ RUN apk add --update wget ca-certificates && \
     rm "$ALPINE_GLIBC_PACKAGE" "$ALPINE_GLIBC_BIN_PACKAGE" /var/cache/apk/*
 
 ENV JAVA_VERSION=8 \
-    JAVA_UPDATE=152 \
-    JAVA_BUILD=16 \
+    JAVA_UPDATE=181 \
+    JAVA_BUILD=13 \
     JAVA_HOME=/usr/lib/jvm/default-jvm
 
 RUN apk add --update wget ca-certificates && \
     cd /tmp && \
     wget --header "Cookie: oraclelicense=accept-securebackup-cookie;" \
-        "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}u${JAVA_UPDATE}-b${JAVA_BUILD}/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz" && \
+        "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}u${JAVA_UPDATE}-b${JAVA_BUILD}/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz" && \
     tar xzf "jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz" && \
     mkdir -p "/usr/lib/jvm" && \
     mv "/tmp/jdk1.${JAVA_VERSION}.0_${JAVA_UPDATE}" "/usr/lib/jvm/java-${JAVA_VERSION}-oracle" && \
@@ -74,9 +74,9 @@ RUN apk add fuse fuse-dev
 # Installing latest dcc-storage-client
 #
 
-RUN mkdir -p /home/iobio/iobio/tools/icgc-storage-client && \
-    cd /home/iobio/iobio/tools/icgc-storage-client && \
-    wget -qO- https://artifacts.oicr.on.ca/artifactory/dcc-release/org/icgc/dcc/icgc-storage-client/[RELEASE]/icgc-storage-client-[RELEASE]-dist.tar.gz | \
+RUN mkdir -p /home/iobio/iobio/tools/score-client && \
+    cd /home/iobio/iobio/tools/score-client && \
+    wget -qO- https://artifacts.oicr.on.ca/artifactory/dcc-pr-snapshot/bio/overture/score-client/1.4.1-SNAPSHOT/score-client-1.4.1-20180904.170646-11-dist.tar.gz | \
     tar xvz
 
 #
@@ -84,15 +84,15 @@ RUN mkdir -p /home/iobio/iobio/tools/icgc-storage-client && \
 # Alternative for lack of tar strip-components
 #
 
-RUN cp -r /home/iobio/iobio/tools/icgc-storage-client/*/* /home/iobio/iobio/tools/icgc-storage-client/
+RUN cp -r /home/iobio/iobio/tools/score-client/*/* /home/iobio/iobio/tools/score-client/
 
 #
 # Makes a directory for icgc-storage-client collab and aws to mount
 #
 
-RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data
-RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/aws
-RUN mkdir /home/iobio/iobio/tools/icgc-storage-client/data/collab
+RUN mkdir /home/iobio/iobio/tools/score-client/data
+RUN mkdir /home/iobio/iobio/tools/score-client/data/aws
+RUN mkdir /home/iobio/iobio/tools/score-client/data/collab
 
 #
 # Adds necessary files in order to run
