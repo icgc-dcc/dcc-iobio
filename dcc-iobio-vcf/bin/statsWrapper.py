@@ -46,12 +46,12 @@ for region in input_json:
 
 path = ""
 try: 
-    if (os.stat("/home/iobio/iobio/tools/icgc-storage-client/data/collab/" + arg2).st_size != 0):
-        path="/home/iobio/iobio/tools/icgc-storage-client/data/collab/" + arg2
+    if (os.stat("/home/iobio/iobio/tools/score-client/data/collab/" + arg2).st_size != 0):
+        path="/home/iobio/iobio/tools/score-client/data/collab/" + arg2
     else:
-        path="/home/iobio/iobio/tools/icgc-storage-client/data/aws/" + arg2
+        path="/home/iobio/iobio/tools/score-client/data/aws/" + arg2
 except OSError:
-    path="/home/iobio/iobio/tools/icgc-storage-client/data/aws/" + arg2
+    path="/home/iobio/iobio/tools/score-client/data/aws/" + arg2
 
 bsa_cmd = ["/home/iobio/iobio/bin/vcfstatsalive", "-u", "1000"]
 st_cmd = ["/home/iobio/iobio/bin/tabix", "-h", path]

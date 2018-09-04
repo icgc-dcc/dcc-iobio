@@ -20,17 +20,17 @@ input=$1
 tbi=$1".tbi"
 idx=$1".idx"
 
-if [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$tbi ];
+if [ -s "/home/iobio/iobio/tools/score-client/data/collab/"$tbi ];
 then
-    FULL_NAME="/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$tbi
-elif [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$idx ];
+    FULL_NAME="/home/iobio/iobio/tools/score-client/data/collab/"$tbi
+elif [ -s "/home/iobio/iobio/tools/score-client/data/collab/"$idx ];
 then 
-    FULL_NAME="/home/iobio/iobio/tools/icgc-storage-client/data/collab/"$idx
-elif [ -s "/home/iobio/iobio/tools/icgc-storage-client/data/aws/"$tbi ];
+    FULL_NAME="/home/iobio/iobio/tools/score-client/data/collab/"$idx
+elif [ -s "/home/iobio/iobio/tools/score-client/data/aws/"$tbi ];
 then
-    FULL_NAME="/home/iobio/iobio/tools/icgc-storage-client/data/aws/"$tbi
+    FULL_NAME="/home/iobio/iobio/tools/score-client/data/aws/"$tbi
 else
-    FULL_NAME="/home/iobio/iobio/tools/icgc-storage-client/data/aws/"$idx
+    FULL_NAME="/home/iobio/iobio/tools/score-client/data/aws/"$idx
 fi
 
 # We are applying dd to the bai file and redirecting it to /dev/null because we want to
